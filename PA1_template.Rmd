@@ -68,7 +68,7 @@ max_interval<-steps_by_interval[max_index,1]
 max_value<-max(steps_by_interval[,2])
 ```
 
-Interval no. `r max_interval` or, in other words, the interval from 8:35:00 to 8:39:59 AM was the most active with `r round(maxunit)` steps on average.
+Interval no. `r max_interval` or, in other words, the interval from 8:35:00 to 8:39:59 AM was the most active with `r round(max_value)` steps on average.
 
 ## Imputing missing values
 

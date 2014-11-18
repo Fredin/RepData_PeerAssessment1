@@ -165,24 +165,21 @@ mean(days[,2])</code></pre>
 <pre><code>## [1] 10257.53</code></pre>
 <pre class="r"><code>mean(ends[,2])</code></pre>
 <pre><code>## [1] 12406.57</code></pre>
-<p>It’s true. The subject is on average more active during the weekend. Let’s do a <a href="http://en.wikipedia.org/wiki/Student%27s_t-test#Paired_samples">paired t-test</a> to determine if this difference is statistically significant.</p>
-<pre class="r"><code># We'll need to take a random sample to match the amount of observations, plus a little scrambling will make the result more robust. 
-set.seed(1234)
-weekday_sample&lt;-sample_n(days,16)
-weekend_sample&lt;-sample_n(ends,16)
-t.test(weekend_sample[,2], weekday_sample[,2], paired=TRUE, alternative = &quot;g&quot;)</code></pre>
+<p>It’s true. The subject is on average more active during the weekend. Let’s do a <a href="http://en.wikipedia.org/wiki/Student%27s_t-test">t-test</a> to determine if this difference is statistically significant.</p>
+<pre class="r"><code>t.test(ends[,2], days[,2], paired = FALSE, var.equal = FALSE, alternative = &quot;g&quot;)</code></pre>
 <pre><code>## 
-##  Paired t-test
+##  Welch Two Sample t-test
 ## 
-## data:  weekend_sample[, 2] and weekday_sample[, 2]
-## t = 1.3668, df = 15, p-value = 0.09592
+## data:  ends[, 2] and days[, 2]
+## t = 2.6024, df = 55.165, p-value = 0.005933
 ## alternative hypothesis: true difference in means is greater than 0
 ## 95 percent confidence interval:
-##  -461.3792       Inf
+##  767.5131      Inf
 ## sample estimates:
-## mean of the differences 
-##                1632.435</code></pre>
-<p>It seems the difference is very likely to be due to chance alone, too bad. There’s more we could do with the data, like testing if morning behavior is significantly different between conditions, but let’s end this exercise here.</p>
+## mean of x mean of y 
+##  12406.57  10257.53</code></pre>
+<p>The total amount of steps our subject takes during weekends is significantly greater than the amount taken during weekdays. It seems our subject has exciting weekends. That’s great.</p>
+<p>There’s more we could do with the data, but let’s end this exercise here.</p>
 </div>
 
 

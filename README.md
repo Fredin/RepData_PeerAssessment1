@@ -1,3 +1,9 @@
+## Coursera grader please don't use the commit provided in the submission!
+I realized too late that I had created the output files the wrong way, 
+so the original commit is missing the PA1_template.md file. I kindly ask
+you to use the latest files. Deduct the points you see necessary, but please
+grade the latest version. Thanks!
+
 ## Introduction
 
 It is now possible to collect a large amount of data about personal
